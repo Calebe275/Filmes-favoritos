@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Filmes Favoritos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="paginaTeste.html">
+      <img src="LogoCineMatch.png" alt="Logo" class="logo">
+    </a>
+    <a href="MeuCadastro.html" class="botao">Meu cadastro</a>
+  </header>
+  <main>
+    <h1>Filmes favoritos</h1>
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquisar">
+    </div>
+    <div class="movie-grid">
+    </div>
+  </main>
+  <div id="imagem-container">
+    <img id="imagem-recebida" src="" alt="Imagem da Página 1" width="300">
+    <button id="botao-excluir" onclick="excluirImagem()">Excluir</button>
+  </div>
+
+  <script>
+      window.onload = function() {
+          const imagemSrc = localStorage.getItem('imagemSrc');
+          if (imagemSrc) {
+              document.getElementById('imagem-recebida').src = imagemSrc;
+          }
+      }
+
+      function excluirImagem() {
+          
+          const container = document.getElementById('imagem-container');
+          if (container) {
+              container.remove();
+          }
+          
+          localStorage.removeItem('imagemSrc');
+      }
+  </script>
+</body>
+</html>
